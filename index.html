@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kilometrówka</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="script/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="script/jquery-ui.js"></script>
+	<script type="text/javascript" src="script/jquery-ui.multidatespicker.js"></script>
+	<script type="text/javascript" src="script/myScript.js"></script>
+	<link href="style/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style/tables.css">
+	<link rel="stylesheet" type="text/css" href="style/elements.css">
+<body>
+	<div id="calendarAndButtons">
+		<script>$("#calendarAndButtons").on('load', addMultiDatesPicker("calendarAndButtons"))</script>
+		<button id="addButton" onclick="displayData()">Dodaj</button>
+		<button id="cancelButton" onclick="clearForm()">Anuluj</button>
+		<button id="delButton" onclick="removeLastRow()">Usuń</button>
+	</div>
+	<form id="collectData">
+		<select id="route" onchange="reactOnSelection('route', 'routeCustom', 'niestandardowy')">
+			<option value="Opis trasy">Opis trasy</option>
+			<option value="Dom - Uśmiech na 5">Dom - Uśmiech na 5</option>
+			<option value="Dom - Milva">Dom - Milva</option>
+			<option value="niestandardowy">niestandardowy</option>
+		</select>
+		<input type="text" id="routeCustom" placeholder="Podaj opis trasy" hidden>
+		<br>
+		<select id="reason" onchange="reactOnSelection('reason', 'reasonCustom', 'niestandardowy')">
+			<option value="Cel wyjazdu">Cel wyjazdu</option>
+			<option value="wyjazd do klienta">wyjazd do klienta</option>
+			<option value="szkolenie">szkolenie</option>
+			<option value="niestandardowy">niestandardowy</option>
+		</select>
+		<input type="text" id="reasonCustom" placeholder="Podaj cel wyjazdu" hidden>
+		<br>
+		<select id="dist" onchange="reactOnSelection('dist', 'distCustom', 'niestandardowy')"">
+			<option value="Dystans">Dystans</option>
+			<option value="36">36 km</option>
+			<option value="20">20 km</option>
+			<option value="niestandardowy">niestandardowy</option>
+		</select>
+		<input type="text" id="distCustom" placeholder="Wprowadź odległość" hidden>
+		<br>
+		<label for="ratio">Stawka:</label>
+		<input type="text" id="ratio" value="0.8358"></input>
+	</form>
+	<table id="summary">
+		<thead>
+			<tr>
+				<th>Nr wpisu</th>
+				<th>Data wyjazdu</th>
+				<th>Opis trasy</th>
+				<th>Cel wyjazdu</th>
+				<th>Liczba przejechanych kilometrów</th>
+				<th>Stawka za 1km</th>
+				<th>Wartość</th>
+				<th>Podpis podatnika</th>
+				<th>Uwagi</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">
+		</tbody>
+	</table>
+</body>
+</html>

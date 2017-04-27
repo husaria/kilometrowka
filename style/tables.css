@@ -1,0 +1,16 @@
+#summary {
+   /*border: 1px solid black;*/
+   width: 100%;
+   text-align: left;
+   /*font-family: Arial;*/
+}
+
+#summary td{
+   border: 1px solid #aed0ea;
+}
+
+#summary th{
+	background: #deedf7 url("images/ui-bg_highlight-soft_100_deedf7_1x100.png") 50% 50% repeat-x;
+   	/*color: #2779aa;*/
+	font-weight: bold;
+}
